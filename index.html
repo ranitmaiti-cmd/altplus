@@ -147,7 +147,7 @@ nav.stuck {
   background: var(--ivory);
 }
 .hero-top {
-  padding-top: 136px;
+  padding-top: 160px;
   opacity: 0; transform: translateY(14px);
   animation: up .9s var(--ease) .2s forwards;
 }
@@ -159,7 +159,7 @@ nav.stuck {
 .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--taupe); }
 .hero-mid {
   flex: 1; display: flex; flex-direction: column; justify-content: center;
-  padding: 52px 0 40px;
+  padding: 32px 0 32px;
 }
 .hero-h1 {
   font-family: var(--serif);
@@ -474,7 +474,51 @@ nav.stuck {
 .ig-steps-mini span strong { color: var(--charcoal); font-weight: 500; }
 .ig-steps-mini a { color: var(--navy); border-bottom: 1px solid rgba(12,42,68,.2); }
 
-/* ─── ENQUIRY ─────────────────────────────────── */
+/* ─── ABOUT ──────────────────────────────────── */
+#about {
+  background: var(--ivory);
+  padding: 110px 64px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+  border-top: 1px solid rgba(173,166,150,.15);
+}
+.about-tag {
+  font-family: var(--sans); font-size: 9px; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--taupe);
+  display: flex; align-items: center; gap: 12px; margin-bottom: 22px;
+}
+.about-tag::before { content: ''; width: 20px; height: 1px; background: var(--taupe); }
+.about-h {
+  font-family: var(--serif); font-size: clamp(30px,3.5vw,48px);
+  font-weight: 300; line-height: 1.2; color: var(--charcoal); margin-bottom: 24px;
+}
+.about-h em { font-style: italic; color: var(--navy); }
+.about-p {
+  font-family: var(--sans); font-size: 14px; color: #7a746d;
+  line-height: 2; margin-bottom: 18px;
+}
+.about-founder {
+  margin-top: 40px; padding-top: 32px;
+  border-top: 1px solid rgba(173,166,150,.2);
+  display: flex; align-items: center; gap: 18px;
+}
+.about-avatar {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--navy); flex-shrink: 0; position: relative; overflow: hidden;
+}
+.about-avatar::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 40% 30%, rgba(184,160,122,.35) 0%, transparent 70%);
+}
+.about-name { font-family: var(--serif); font-size: 16px; color: var(--charcoal); font-weight: 400; }
+.about-role { font-size: 11px; color: var(--taupe); margin-top: 3px; }
+.about-values {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.about-val h4 {
+  font-family: var(--serif); font-size: 17px; color: var(--navy);
+  margin-bottom: 8px; font-weight: 400;
+}
+.about-val p { font-size: 12px; line-height: 1.9; color: var(--taupe); }
 #enquiry {
   background: var(--navy);
   padding: 120px 64px;
@@ -502,6 +546,12 @@ nav.stuck {
   font-family: var(--sans); font-size: 8.5px; letter-spacing: .22em;
   text-transform: uppercase; color: var(--taupe); display: block; margin-bottom: 5px;
 }
+.enq-d a, .enq-d p {
+  font-family: var(--serif); font-size: 18px;
+  color: rgba(240,233,223,.85); font-weight: 300;
+  transition: color .3s; position: relative; z-index: 5; cursor: pointer;
+}
+.enq-d a:hover { color: var(--ivory); text-decoration: underline; text-underline-offset: 4px; }
 .enq-d a, .enq-d p {
   font-family: var(--serif); font-size: 18px;
   color: rgba(240,233,223,.7); font-weight: 300; transition: color .3s;
@@ -549,18 +599,20 @@ footer {
   padding: 56px 64px;
   display: flex; align-items: center; justify-content: space-between;
   border-top: 1px solid rgba(173,166,150,.07);
+  position: relative; z-index: 10;
 }
 .ft-logo { display: flex; align-items: center; gap: 12px; }
 .ft-logo-txt { font-family: var(--serif); font-size: 14px; letter-spacing: .22em; color: var(--ivory); font-weight: 500; }
 .ft-center { text-align: center; }
-.ft-copy { font-family: var(--sans); font-size: 10.5px; color: rgba(173,166,150,.3); letter-spacing: .08em; }
-.ft-tagline { font-family: var(--serif); font-size: 13px; font-style: italic; color: rgba(173,166,150,.28); margin-top: 5px; }
+.ft-copy { font-family: var(--sans); font-size: 10.5px; color: rgba(173,166,150,.5); letter-spacing: .08em; }
+.ft-tagline { font-family: var(--serif); font-size: 13px; font-style: italic; color: rgba(173,166,150,.4); margin-top: 5px; }
 .ft-social { display: flex; gap: 28px; }
 .ft-social a {
   font-family: var(--sans); font-size: 9.5px; letter-spacing: .16em;
-  text-transform: uppercase; color: rgba(173,166,150,.3); transition: color .3s;
+  text-transform: uppercase; color: rgba(173,166,150,.6);
+  transition: color .3s; cursor: pointer; position: relative; z-index: 10;
 }
-.ft-social a:hover { color: rgba(240,233,223,.65); }
+.ft-social a:hover { color: var(--ivory); }
 
 /* ─── TOAST ──────────────────────────────────── */
 .toast {
@@ -593,8 +645,10 @@ footer {
   #hero { grid-template-columns: 1fr; }
   .hero-r { display: none; }
   .hero-l { padding: 0 32px; min-height: 100vh; }
-  .hero-top { padding-top: 110px; }
+  .hero-top { padding-top: 130px; }
   .hero-scroll { display: none; }
+  #about { grid-template-columns: 1fr; gap: 48px; padding: 80px 32px; }
+  .about-values { grid-template-columns: 1fr; }
   #press { padding: 56px 32px; }
   .press-logo { padding: 12px 28px; font-size: 16px; }
   #instagram { padding: 80px 32px; }
@@ -607,7 +661,8 @@ footer {
 }
 @media (max-width: 600px) {
   .hero-l { padding: 0 24px; }
-  .hero-top { padding-top: 100px; }
+  .hero-top { padding-top: 120px; }
+  #about { padding: 64px 24px; }
   .press-logos { flex-direction: column; align-items: center; }
   .press-logo { border-right: none; border-bottom: 1px solid rgba(173,166,150,.15); width: 100%; text-align: center; }
   .press-logo:last-child { border-bottom: none; }
@@ -669,6 +724,7 @@ footer {
       </svg>
       @altplus.build
     </a>
+    <a href="#about" class="nav-link" style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);">Studio</a>
     <a href="#enquiry" class="nav-cta">Enquire</a>
     <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
   </div>
@@ -733,10 +789,10 @@ footer {
     </svg>
     <p class="hero-tagline">"Where heritage<br>meets the now."</p>
     <div class="hero-stats">
-      <div class="hs"><div class="hs-n" id="cnt">0</div><div class="hs-l">Projects Delivered</div></div>
-      <div class="hs"><div class="hs-n">18</div><div class="hs-l">Years of Practice</div></div>
+      <div class="hs"><div class="hs-n">18+</div><div class="hs-l">Years of Practice</div></div>
       <div class="hs"><div class="hs-n">Forbes</div><div class="hs-l">30 Under 45</div></div>
       <div class="hs"><div class="hs-n">AD</div><div class="hs-l">India Featured</div></div>
+      <div class="hs"><div class="hs-n">2025</div><div class="hs-l">Studio Launch</div></div>
     </div>
   </div>
 
@@ -769,6 +825,41 @@ footer {
     <span class="press-logo">India Design</span>
     <span class="press-logo">Elle Décor</span>
     <span class="press-logo">Vogue Living</span>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ════════════════════════════════════ -->
+<section id="about">
+  <div class="rv">
+    <p class="about-tag">The Studio</p>
+    <h2 class="about-h">Where heritage<br>meets the <em>now.</em></h2>
+    <p class="about-p">Alt Plus is a design-led luxury residential interior studio founded by Ranit Maiti — an architect with eighteen years of award-winning practice and a Forbes 30 Under 45 recognition.</p>
+    <p class="about-p">We work with a curated roster of clients who value design not as decoration, but as an act of intention. Every home we create holds memory, reflects character, and appreciates over time.</p>
+    <div class="about-founder">
+      <div class="about-avatar"></div>
+      <div>
+        <div class="about-name">Ranit Maiti</div>
+        <div class="about-role">Founder, Alt Plus · Forbes 30 Under 45 · Prabir Mitra Memorial Award 2025</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-values rv d2">
+    <div class="about-val">
+      <h4>Material Intelligence</h4>
+      <p>Every surface selected for how it ages, feels, and what it says about the people who live with it.</p>
+    </div>
+    <div class="about-val">
+      <h4>Cultural Rootedness</h4>
+      <p>Indian craft traditions inform every project — living language, never pastiche.</p>
+    </div>
+    <div class="about-val">
+      <h4>Absolute Discretion</h4>
+      <p>Every commission treated as a private trust. Complete confidentiality at every stage.</p>
+    </div>
+    <div class="about-val">
+      <h4>End-to-End Creation</h4>
+      <p>From first sketch to final installation — every detail managed with precision.</p>
+    </div>
   </div>
 </section>
 
@@ -860,7 +951,7 @@ footer {
       </div>
       <div class="enq-d">
         <label>Email</label>
-        <a href="mailto:altplus.build@gmail.com">altplus.build@gmail.com</a>
+        <a href="/cdn-cgi/l/email-protection#42232e36322e37316c20372b2e2602252f232b2e6c212d2f"><span class="__cf_email__" data-cfemail="8aebe6fefae6fff9a4e8ffe3e6eecaede7ebe3e6a4e9e5e7">[email&#160;protected]</span></a>
       </div>
       <div class="enq-d">
         <label>Instagram</label>
@@ -934,13 +1025,13 @@ footer {
   <div class="ft-social">
     <a href="https://www.instagram.com/altplus.build" target="_blank">Instagram</a>
     <a href="https://www.linkedin.com/company/alt-plus-build/" target="_blank">LinkedIn</a>
-    <a href="mailto:altplus.build@gmail.com">Email</a>
+    <a href="/cdn-cgi/l/email-protection#07666b73776b72742965726e6b6347606a666e6b2964686a">Email</a>
   </div>
 </footer>
 
 <div class="toast" id="toast"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── CURSOR ── */
 const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
 let mx=0,my=0,rx=0,ry=0;
@@ -979,22 +1070,6 @@ document.querySelectorAll('.rv').forEach(el=>
     if(e.isIntersecting) el.classList.add('in');
   },{threshold:.1}).observe(el)
 );
-
-/* ── HERO COUNTER ── */
-const cEl=document.getElementById('cnt');
-function animCount(el,target,dur){
-  let start=null;
-  (function step(ts){
-    if(!start) start=ts;
-    const p=Math.min((ts-start)/dur,1);
-    el.textContent=Math.floor(p*target);
-    if(p<1) requestAnimationFrame(step);
-    else el.textContent=target+'+';
-  })(performance.now());
-}
-new IntersectionObserver(([e])=>{
-  if(e.isIntersecting) animCount(cEl,40,1600);
-},{threshold:.5}).observe(cEl);
 
 /* ════════════════════════════════════════════════
    INSTAGRAM FEED
@@ -1140,13 +1215,4 @@ function submitForm(){
   window.location.href = `mailto:altplus.build@gmail.com?subject=${subject}&body=${body}`;
 
   showToast('Thank you, '+name+'. Opening your email to send the enquiry…');
-  ['ef-name','ef-email','ef-phone','ef-city','ef-msg'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('ef-type').value='';
-}
-
-/* ── TOAST ── */
-function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show
+  ['ef-name','ef-email','ef-phone','ef-city
