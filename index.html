@@ -731,6 +731,7 @@ footer {
 </nav>
 
 <div class="mobnav" id="mob">
+  <a href="#about">Studio</a>
   <a href="#instagram">Our Work</a>
   <a href="#enquiry">Enquire</a>
   <a href="https://www.instagram.com/altplus.build" target="_blank">Instagram</a>
@@ -951,7 +952,7 @@ footer {
       </div>
       <div class="enq-d">
         <label>Email</label>
-        <a href="/cdn-cgi/l/email-protection#42232e36322e37316c20372b2e2602252f232b2e6c212d2f"><span class="__cf_email__" data-cfemail="8aebe6fefae6fff9a4e8ffe3e6eecaede7ebe3e6a4e9e5e7">[email&#160;protected]</span></a>
+        <span class="email-link" onclick="openEmail()" style="cursor:pointer;font-family:var(--serif);font-size:18px;color:rgba(240,233,223,.85);font-weight:300;transition:color .3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(240,233,223,.85)'">altplus.build [at] gmail.com</span>
       </div>
       <div class="enq-d">
         <label>Instagram</label>
@@ -1025,13 +1026,35 @@ footer {
   <div class="ft-social">
     <a href="https://www.instagram.com/altplus.build" target="_blank">Instagram</a>
     <a href="https://www.linkedin.com/company/alt-plus-build/" target="_blank">LinkedIn</a>
-    <a href="/cdn-cgi/l/email-protection#07666b73776b72742965726e6b6347606a666e6b2964686a">Email</a>
+    <a href="#" onclick="openEmail();return false;">Email</a>
   </div>
 </footer>
 
 <div class="toast" id="toast"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── EMAIL (bypass Cloudflare obfuscation) ── */
+function openEmail(){
+  const u='altplus.build';
+  const d='gmail.com';
+  window.location.href='mailto:'+u+'@'+d;
+}
+
+/* ── SMOOTH SCROLL for anchor links ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const href=this.getAttribute('href');
+    if(href==='#'||href===''||href==null) return; // skip logo and empty links
+    const target=document.querySelector(href);
+    if(target){
+      e.preventDefault();
+      const offset=80; // nav height
+      const top=target.getBoundingClientRect().top+window.scrollY-offset;
+      window.scrollTo({top,behavior:'smooth'});
+    }
+  });
+});
+
 /* ── CURSOR ── */
 const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
 let mx=0,my=0,rx=0,ry=0;
@@ -1212,7 +1235,4 @@ function submitForm(){
     `Name: ${name}\nEmail: ${email}\nPhone: ${phone||'—'}\nCity: ${city||'—'}\nProject Type: ${type||'—'}\n\n${msg}`
   );
 
-  window.location.href = `mailto:altplus.build@gmail.com?subject=${subject}&body=${body}`;
-
-  showToast('Thank you, '+name+'. Opening your email to send the enquiry…');
-  ['ef-name','ef-email','ef-phone','ef-city
+  window.
