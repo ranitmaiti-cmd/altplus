@@ -645,7 +645,9 @@ footer {
   .nav-r .nav-cta { padding: 9px 20px; }
   #cur, #cur-r { display: none; }
   .logo img { height: 42px !important; }
-  #work img { object-position: center 60% !important; }
+  #work img { object-position: center center !important; }
+  #work > div:first-child { height: auto !important; max-height: none !important; }
+  #work > div:first-child img { height: auto !important; object-fit: contain !important; background: var(--ivory); }
   #hero { grid-template-columns: 1fr; }
   .hero-r { display: none; }
   .hero-l { padding: 0 24px; min-height: 100vh; }
